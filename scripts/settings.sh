@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 SETTINGS="/bf1942/mods/bf1942/settings"
 SERVER_AUTOEXEC="${SETTINGS}/serverautoexec.con"

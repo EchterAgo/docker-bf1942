@@ -1,15 +1,18 @@
-#!/bin/bash
+#!/bin/sh
 
-source /settings.sh
+#source /settings.sh
 
 # init env
 BFSM=${BFSM:-}
 
 cd /bf1942
 
-if [[ "${BFSM}" != "" ]]; then
+if ! [ -z "$BFSM" ]; then
     # start bfsm
-    ./bfsmd -port 15667 -adminlog -nodelay -restart -start -noadmin
+    IP=$(hostname -I | awk '{print $1}')
+    echo "Starting server on $IP"
+    ./bfsmd -ip $IP -port 14667 -nodelay -restart -start -noadmin -daemon
+    tail -f bfsmd.log
 else
     # start server
     ./bf1942_lnxded +statusMonitor 1

@@ -11,7 +11,7 @@ docker build -t bf1942 .
 
 ## Ports
  - 14567/udp
- - 15667/tcp
+ - 14667/tcp
  - 22000/udp
  - 23000/udp
 
@@ -41,3 +41,7 @@ Reset mods folder (admins, mods, maps, settings, etc.)
 ```
 docker-compose down --volumes
 ```
+
+## IPFS
+
+Add to IPFS using `ipfs add --cid-version=1 --chunker=size-1048576`

@@ -1,17 +1,13 @@
 version: "3.7"
 services:
   bf1942:
-    image: bf1942:latest
-    command: sh -c "/start.sh"
+    image: bf42:latest
     ports:
       - 14567:14567/udp # Server
-      - 15667:15667/tcp # BFSM
+      - 14667:14667/tcp # BFSM
       - 22000:22000/udp # Gamespy LAN
       - 23000:23000/udp # Gamespy
-    working_dir: /
     volumes:
-      - bf1942-mods:/bf1942/mods/ # Persistent mods directory
+      - ./settings:/bf1942/mods/bf1942/settings/
     environment:
       BFSM: "yes"
-volumes:
-  bf1942-mods:
